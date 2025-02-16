@@ -22,7 +22,7 @@ void Triangle_1::render()
     mp_TextureA->bind(0);
     mp_Shader->setUniformValue("samplerA",0);
     mp_GlFuncs->glBindVertexArray(m_VAO);
-    mp_GlFuncs->glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void*)0);  // 使用 EBO 绘制三角形
+    mp_GlFuncs->glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0);  // 使用 EBO 绘制三角形
     mp_GlFuncs->glBindVertexArray(0);
     mp_Shader->release();
 }
@@ -43,17 +43,18 @@ void Triangle_1::init()
     initTexture();
 
     // 准备顶点数据
-    // 顶点数据（位置 + 纹理坐标）
+    // 顶点数据：位置 (x,y,z) + UV 坐标 (u,v)（共4个顶点）
     float vertices[] = {
-        // 位置 (x, y, z)     纹理坐标 (s, t)
-        -0.7f, -0.7f, 0.0f,  0.0f, 0.0f, // 左下角
-         0.7f, -0.7f, 0.0f,  1.4f, 0.0f, // 右下角
-         0.0f,  0.7f, 0.0f,  0.7f, 1.0f  // 顶部
+        -0.7f, -0.7f, 0.0f,  0.0f, 0.0f, // 左下角 (索引0)
+         0.7f, -0.7f, 0.0f,  1.0f, 0.0f, // 右下角 (索引1)
+         0.7f,  0.7f, 0.0f,  1.0f, 1.0f, // 右上角 (索引2)
+        -0.7f,  0.7f, 0.0f,  0.0f, 1.0f  // 左上角 (索引3)
     };
 
-    // 准备索引数据
+    // 索引数据（定义两个三角形）
     unsigned int indices[] = {
-        0, 1, 2
+        0, 1, 2, // 第一个三角形（左下→右下→右上）
+        2, 3, 0  // 第二个三角形（右上→左上→左下）
     };
 
     // 1. 创建并绑定 VBO，并将顶点数据上传到显存
