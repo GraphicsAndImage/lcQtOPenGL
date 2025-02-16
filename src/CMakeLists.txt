@@ -30,12 +30,11 @@ endforeach()
 # 生成目标
 file(GLOB_RECURSE GL_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
 file(GLOB_RECURSE GL_CPPS ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
-qt6_add_resources(GL_QRC ${CMAKE_SOURCE_DIR}/asset/resource.qrc)
+qt6_add_resources(GL_QRC ${CMAKE_SOURCE_DIR}/assets/resource.qrc)
 qt_add_executable(${PROJECT_NAME}
     ${GL_QRC}
     ${GL_HDRS}
     ${GL_CPPS}
-    Primitive/TriangleQt.h Primitive/TriangleQt.cpp
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets

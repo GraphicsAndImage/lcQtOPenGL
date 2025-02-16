@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>shaders/fragmentShader.glsl</file>
+        <file>shaders/vertexShader.glsl</file>
+        <file>shaders/fragmentShader02.glsl</file>
+        <file>shaders/vertexShader02.glsl</file>
+        <file>shaders/fragmentShader01.glsl</file>
+        <file>textures/wukong_katong.jpg</file>
+        <file>textures/wukong.jpg</file>
+        <file>textures/xingxing.png</file>
+        <file>textures/longbb.jpg</file>
+        <file>textures/longbb2.jpg</file>
+        <file>textures/grass1.jpg</file>
+        <file>textures/ground.jpg</file>
+    </qresource>
+</RCC>

@@ -6,7 +6,7 @@
 #include <QOpenGLShaderProgram>
 
 class Triangle;
-class TriangleQt;
+class Triangle_1;
 
 class LCOpenGLWidget : public QOpenGLWidget, QOpenGLFunctions_4_5_Core
 {
@@ -20,22 +20,7 @@ protected:
     virtual void paintGL() override;
 
 private:
-    /**
-     * @brief initShaderProgram : 读取Shader程序
-     */
-    QOpenGLShaderProgram *initShaderProgram();
-
-    /**
-     * @brief readGlsl : 读取glsl文件
-     * @param fileName : glsl 文件
-     * @return 返回文本
-     */
-    QString readGlsl(const QString &fileName);
-
-private:
-    QOpenGLShaderProgram        *mp_Shader;
-    Triangle                    *mp_Triangle;
-    TriangleQt                  *mp_TriangleQt;
+    Triangle_1                    *mp_Triangle;
 };
 
 #endif // LCOPENGLWIDGET_H
