@@ -54,8 +54,8 @@ lcTexture2D::lcTexture2D(QOpenGLFunctions_4_5_Core *function, const QString &nam
     mp_GlFuncs->glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
     // 第六步：设置纹理的包裹方式
-    mp_GlFuncs->glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
-    mp_GlFuncs->glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+    mp_GlFuncs->glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    mp_GlFuncs->glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
     // 至此，纹理图像数据上传到了 显存，而它的纹理对象是 m_ttObj
 }
